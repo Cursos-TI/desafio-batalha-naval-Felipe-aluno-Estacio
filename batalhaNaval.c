@@ -4,7 +4,42 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
+// Definindo as dimensões do tabuleiro
+#define LINHAS 5
+#define COLUNAS 5
+
+// Tamanho padrão de cada navio (em partes)
+#define TAMANHO_NAVIO 3
+
 int main() {
+    // Matriz do tabuleiro inicializada com zeros (representa água)
+    int tabuleiro[LINHAS][COLUNAS] = {0};
+
+    // Coordenadas iniciais dos navios
+    int navio_vertical_x = 1, navio_vertical_y = 2;
+    int navio_horizontal_x = 3, navio_horizontal_y = 1;
+
+    // Posicionamento do navio vertical no tabuleiro
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[navio_vertical_x + i][navio_vertical_y] = 1; // '1' representa parte do navio
+    }
+
+    // Posicionamento do navio horizontal no tabuleiro
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[navio_horizontal_x][navio_horizontal_y + i] = 2; // '2' representa parte do navio
+    }
+
+    // Exibindo as coordenadas de cada parte dos navios com printf
+    printf("Coordenadas das partes do navio vertical:\n");
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        printf("Parte do navio vertical posicionada na casa (%d, %d)\n", navio_vertical_x + i, navio_vertical_y);
+    }
+
+    printf("\nCoordenadas das partes do navio horizontal:\n");
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        printf("Parte do navio horizontal posicionada na casa (%d, %d)\n", navio_horizontal_x, navio_horizontal_y + i);
+    }
+
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
     // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
